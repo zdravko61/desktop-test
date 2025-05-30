@@ -16,6 +16,9 @@
   },
   "build": {
     "appId": "com.example.electronexpress",
+    "win": {
+      "target": "nsis"
+    },
     "files": [
       "dist/**/*",
       "node_modules/**/*"
