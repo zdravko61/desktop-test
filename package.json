@@ -7,7 +7,7 @@
   "author": "zdravko.iliev@pm.me",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zdravkoiliev/desktop-test.git"
+    "url": "https://github.com/zdravko61/desktop-test.git"
   },
   "scripts": {
     "build": "tsc",
