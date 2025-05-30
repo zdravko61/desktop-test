@@ -4,14 +4,12 @@ const { autoUpdater } = require("electron-updater");
 const startServer = require("./server");
 
 // Replace electron-is-dev with manual check
-const isDev = process.env.NODE_ENV === "development" || !app.isPackaged;
+// const isDev = process.env.NODE_ENV === "development" || !app.isPackaged;
 
 function startApp() {
   startServer();
-  if (!isDev) {
-    autoUpdater.logger = log;
-    autoUpdater.checkForUpdatesAndNotify();
-  }
+  autoUpdater.logger = log;
+  autoUpdater.checkForUpdatesAndNotify();
 }
 
 app.whenReady().then(startApp);
