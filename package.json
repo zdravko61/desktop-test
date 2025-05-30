@@ -10,7 +10,6 @@
     "url": "https://github.com/zdravkoiliev/desktop-test.git"
   },
   "scripts": {
-    "dev": "tsc --watch & electron .",
     "build": "tsc",
     "start": "tsc && electron .",
     "dist": "tsc && electron-builder"
@@ -18,11 +17,13 @@
   "build": {
     "appId": "com.example.electronexpress",
     "files": [
-      "dist/**/*"
+      "dist/**/*",
+      "node_modules/**/*"
     ],
     "publish": [
       {
-        "provider": "github"
+        "provider": "github",
+        "releaseType": "release"
       }
     ]
   },
@@ -31,12 +32,11 @@
     "@types/node": "^22.15.24",
     "typescript": "^5.8.3",
     "electron": "^36.3.2",
-    "electron-builder": "^26.0.12",
-    "electron-is-dev": "^3.0.1",
-    "electron-log": "^5.4.0",
-    "electron-updater": "^6.6.2"
+    "electron-builder": "^26.0.12"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "electron-log": "^5.4.0",
+    "electron-updater": "^6.6.2"
   }
 }

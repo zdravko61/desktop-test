@@ -1,12 +1,13 @@
-import { app } from "electron";
-import isDev from "electron-is-dev";
-import log from "electron-log";
-import { autoUpdater } from "electron-updater";
-import startServer from "./server";
+const { app } = require("electron");
+const log = require("electron-log");
+const { autoUpdater } = require("electron-updater");
+const startServer = require("./server");
 
-function startApp(): void {
+// Replace electron-is-dev with manual check
+const isDev = process.env.NODE_ENV === "development" || !app.isPackaged;
+
+function startApp() {
   startServer();
-
   if (!isDev) {
     autoUpdater.logger = log;
     autoUpdater.checkForUpdatesAndNotify();

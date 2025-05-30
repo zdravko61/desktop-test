@@ -1,6 +1,6 @@
-import express from "express";
+const express = require("express");
 
-export default function startServer(): void {
+function ss() {
   const app = express();
   const PORT = 3000;
 
@@ -12,3 +12,5 @@ export default function startServer(): void {
     console.log(`Express server running at http://localhost:${PORT}`);
   });
 }
+
+module.exports = ss;
