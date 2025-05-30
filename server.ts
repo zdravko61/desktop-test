@@ -5,7 +5,7 @@ function ss() {
   const PORT = 3000;
 
   app.get("/api/hello", (_, res) => {
-    res.send("Hello World from Express! hello 1.0.6");
+    res.send("Hello World from Express! hello 1.0.7");
   });
 
   app.listen(PORT, () => {
