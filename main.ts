@@ -3,13 +3,16 @@ const log = require("electron-log");
 const { autoUpdater } = require("electron-updater");
 const startServer = require("./server");
 
-// Replace electron-is-dev with manual check
-// const isDev = process.env.NODE_ENV === "development" || !app.isPackaged;
-
 function startApp() {
   startServer();
+
   autoUpdater.logger = log;
   autoUpdater.checkForUpdatesAndNotify();
+
+  autoUpdater.on("update-downloaded", (info) => {
+    log.info("Update downloaded; will quit and install.");
+    autoUpdater.quitAndInstall();
+  });
 }
 
 app.whenReady().then(startApp);
@@ -19,6 +22,5 @@ app.on("window-all-closed", () => {
 });
 
 app.on("activate", () => {
-  // Background app: no UI to recreate
   console.log("Activated");
 });
